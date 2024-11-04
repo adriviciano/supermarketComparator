@@ -4,7 +4,7 @@
 export function buscarProductosPorNombre(productos, palabra) {
     const palabraLower = palabra.toLowerCase();
     return productos.filter(producto => 
-        producto.categoria.toLowerCase().includes(palabraLower)
+        producto.nombre.toLowerCase().includes(palabraLower)
     );
 }
 
