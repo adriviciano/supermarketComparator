@@ -64,3 +64,8 @@ img {
         width: 90%;
     }
 }
+
+#listaCompraDiv{
+    background-color: #000;
+    color: #fff;
+}

@@ -8,39 +8,17 @@
 </head>
 <body>
     <h1>Comparador de Productos</h1>
+    <button id="verListaBtn">Ver lista de la compra</button>
+    <button id="guardarListaBtn">Guardar lista de la compra como imagen</button>
+    
+    <div id="listaCompraDiv"></div>
+
     <input type="text" id="nombreProducto" placeholder="Introduce el nombre del producto">
     <button id="buscarBtn">Buscar</button>
     
     <div id="resultados"></div>
 
-    <script type="module">
-        import { compararProductos } from './comparator.js';
-
-        // Función para mostrar los productos en el HTML
-        function mostrarResultados(productos) {
-            const resultadosDiv = document.getElementById("resultados");
-            resultadosDiv.innerHTML = "<h2>Resultados ordenados por precio:</h2>";
-            
-            productos.forEach(producto => {
-                const productoDiv = document.createElement("div");
-                productoDiv.innerHTML = `
-                    <h3><strong>Nombre:</strong> ${producto.nombre}</h3>    
-                    <h4><strong>Supermercado:</strong> ${producto.supermercado}</h4>
-                    <p><strong>Precio:</strong> ${producto.precio_unitario}</p>
-                    <p><strong>Precio por unidad:</strong> ${producto.precio_por_unidad}</p>
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <hr>
-                `;
-                resultadosDiv.appendChild(productoDiv);
-            });
-        }
-
-        // Asignar evento al botón de búsqueda
-        document.getElementById("buscarBtn").addEventListener("click", async () => {
-            const nombreProducto = document.getElementById("nombreProducto").value;
-            const productosOrdenados = await compararProductos(nombreProducto);
-            mostrarResultados(productosOrdenados);
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
